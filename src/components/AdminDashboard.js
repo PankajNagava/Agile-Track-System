@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import TaskStatusUpdate from "./TaskStatusUpdate";
+import "../styles/AdminDashboard.css"; // Ensure CSS file import
 
 function AdminDashboard() {
   const [scrumTeams, setScrumTeams] = useState([]);
@@ -88,10 +89,6 @@ function AdminDashboard() {
   return (
     <div className="admin-dashboard">
       <h2>Scrum Teams</h2>
-      <div>
-        <button onClick={() => navigate("/admin-dashboard")}>Dashboard</button>
-        <button onClick={() => navigate("/profile")}>Profiles</button>
-       </div>
 
       <button onClick={() => setShowScrumForm(!showScrumForm)}>Add New Scrum</button>
 
@@ -116,11 +113,11 @@ function AdminDashboard() {
         </div>
       )}
 
-      <ul>
+      <ul className="scrum-list">
         {scrumTeams.map((team) => (
-          <li key={team.id}>
-            <strong>{team.name}</strong>
-            <button onClick={() => handleGetDetails(team)}>Get Details</button>
+          <li key={team.id} className="scrum-item">
+            <span className="scrum-name">{team.name}</span>
+            <button className="details-button" onClick={() => handleGetDetails(team)}>Get Details</button>
           </li>
         ))}
       </ul>

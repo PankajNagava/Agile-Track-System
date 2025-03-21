@@ -15,76 +15,30 @@ function Navbar() {
   };
 
   return (
-    <nav style={styles.navbar}>
-      <div style={styles.logo}>
-        {/* Placeholder logo text */}
-        <span style={styles.logoText}>AgileTrack</span>
-      </div>
-
-      <ul style={styles.navList}>
-        {!user && !admin && (
-          <>
-            <li><Link to="/" style={styles.link}>Welcome</Link></li>
-            <li><Link to="/login" style={styles.link}>Login</Link></li>
-          </>
-        )}
-
+    <nav className="navbar">
+      <div className="nav-left">
+        <span className="logo">AgileTrack</span>
         {user && (
           <>
-            
-            <li><button onClick={handleLogout} style={styles.logoutBtn}>Logout</button></li>
+            <Link to="/user-dashboard" className="button-primary">Dashboard</Link>
+            <Link to="/profile" className="button-primary">Profiles</Link>
           </>
         )}
-
         {admin && (
           <>
-             <li><button onClick={handleLogout} style={styles.logoutBtn}>Logout</button></li>
+            <Link to="/admin-dashboard" className="button-primary">Dashboard</Link>
+            <Link to="/profile" className="button-primary">Profiles</Link>
           </>
         )}
-      </ul>
+      </div>
+
+      {(user || admin) && (
+        <div className="nav-right">
+          <button className="button-danger" onClick={handleLogout}>Logout</button>
+        </div>
+      )}
     </nav>
   );
 }
-
-const styles = {
-  navbar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#1e1e1e',
-    padding: '10px 20px',
-  },
-  logo: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  logoText: {
-    color: '#fff',
-    fontSize: '20px',
-    fontWeight: 'bold',
-  },
-  navList: {
-    listStyle: 'none',
-    display: 'flex',
-    gap: '15px',
-    margin: 0,
-    padding: 0,
-  },
-  link: {
-    color: '#fff',
-    textDecoration: 'none',
-    padding: '8px 12px',
-    backgroundColor: '#4CAF50',
-    borderRadius: '4px',
-  },
-  logoutBtn: {
-    padding: '8px 12px',
-    backgroundColor: '#f44336',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  }
-};
 
 export default Navbar;

@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import '../styles/ProfilePage.css'; // Ensure you import the CSS file
 
 function ProfilePage() {
   const [users, setUsers] = useState([]);
-  const [tasks, setTasks] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [historyTasks, setHistoryTasks] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const [newUser, setNewUser] = useState({ name: "", email: "", password: "", role: "user" });
+  const [newUser, setNewUser] = useState({ name: '', email: '', password: '', role: 'user' });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,47 +16,53 @@ function ProfilePage() {
   }, []);
 
   const fetchUsers = async () => {
-    const usersRes = await axios.get("http://localhost:5000/users");
-    setUsers(usersRes.data);
+    try {
+      const usersRes = await axios.get('http://localhost:5000/users');
+      setUsers(usersRes.data);
+    } catch (error) {
+      console.error('Error fetching users:', error);
+    }
   };
 
   const handleGetHistory = async (user) => {
     setSelectedUser(user);
-    const tasksRes = await axios.get("http://localhost:5000/tasks");
-    const userTasks = tasksRes.data.filter(task => task.assignedTo === user.id);
-    setHistoryTasks(userTasks);
+    try {
+      const tasksRes = await axios.get('http://localhost:5000/tasks');
+      const userTasks = tasksRes.data.filter(task => task.assignedTo === user.id);
+      setHistoryTasks(userTasks);
+    } catch (error) {
+      console.error('Error fetching tasks:', error);
+    }
   };
 
   const handleAddUser = async () => {
     const { name, email, password, role } = newUser;
     if (!name || !email || !password || !role) {
-      alert("All fields are required!");
+      alert('All fields are required!');
       return;
     }
-    if (!email.includes("@")) {
-      alert("Please include an '@'");
+    if (!email.includes('@')) {
+      alert("Please include an '@' in the email address.");
       return;
     }
-    await axios.post("http://localhost:5000/users", newUser);
-    alert("User created successfully!");
-    setShowForm(false);
-    fetchUsers();
+    try {
+      await axios.post('http://localhost:5000/users', newUser);
+      alert('User created successfully!');
+      setShowForm(false);
+      fetchUsers();
+    } catch (error) {
+      console.error('Error adding user:', error);
+    }
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("admin");
-    navigate("/login");
+    localStorage.removeItem('admin');
+    navigate('/login');
   };
 
   return (
     <div className="admin-profile-page">
       <h2>User Profiles</h2>
-      <div>
-        <button onClick={() => navigate("/admin-dashboard")}>Dashboard</button>
-        <button onClick={() => navigate("/profile")}>Profiles</button>
-         
-      </div>
-
       <button onClick={() => setShowForm(!showForm)}>Add New User</button>
 
       {showForm && (
@@ -88,11 +94,17 @@ function ProfilePage() {
         </div>
       )}
 
-      <ul>
+      <ul className="user-list">
         {users.map((user) => (
-          <li key={user.id}>
-            <strong>{user.name}</strong> - {user.email}
-            <button onClick={() => handleGetHistory(user)}>Get History</button>
+          <li key={user.id} className="user-item">
+            <div className="user-info">
+              <span>
+                <strong>{user.name}</strong> - {user.email}
+              </span>
+              <button className="get-history-btn" onClick={() => handleGetHistory(user)}>
+                Get History
+              </button>
+            </div>
           </li>
         ))}
       </ul>

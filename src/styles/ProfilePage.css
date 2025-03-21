@@ -1,0 +1,32 @@
+.user-item {
+    background-color: #f9f9f9;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between; /* Space between user info and button */
+    align-items: center;
+  }
+  
+  .user-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .user-info span {
+    font-size: 17px;
+    color: #34495e;
+  }
+  
+  .get-history-btn {
+    margin-left: auto; /* Pushes the button to the far right */
+    background-color: #2ecc71;
+  }
+  
+  .get-history-btn:hover {
+    background-color: #27ae60;
+  }
+  

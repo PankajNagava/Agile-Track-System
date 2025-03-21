@@ -42,10 +42,7 @@ function UserDashboard() {
   return (
     <div className="user-dashboard">
       <h2>Scrum Teams</h2>
-      <div>
-        <button onClick={() => navigate("/user-dashboard")}>Dashboard</button>
-        <button onClick={() => navigate("/profile")}>Profiles</button>
-       </div>
+       
 
       <ul>
         {scrumTeams.map((team) => (
