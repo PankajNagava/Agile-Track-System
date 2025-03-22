@@ -1,0 +1,151 @@
+{
+  "users": [
+    {
+      "name": "Employee One",
+      "email": "employee1@example.com",
+      "password": "password1",
+      "role": "user",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "Employee Two",
+      "email": "employee2@example.com",
+      "password": "password2",
+      "role": "user"
+    },
+    {
+      "id": "7e74",
+      "name": "p",
+      "email": "p@email.com",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "46fc",
+      "name": "p",
+      "email": "p2@email.com",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "243a",
+      "name": "xyz",
+      "email": "xyz@email.com",
+      "password": "123456",
+      "role": "admin"
+    },
+    {
+      "id": "7e67",
+      "name": "user1",
+      "email": "u1@email.com",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "6274",
+      "name": "user2",
+      "email": "user2@email.com",
+      "password": "123456",
+      "role": "user"
+    },
+    {
+      "id": "eca2",
+      "name": "pj ",
+      "email": "pj@email.com",
+      "password": "1234556",
+      "role": "user"
+    }
+  ],
+  "admins": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "admin123",
+      "role": "admin"
+    }
+  ],
+  "scrumTeams": [
+    {
+      "id": "1",
+      "name": "Scrum Team A",
+      "tasks": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Scrum Team B",
+      "tasks": [
+        3
+      ]
+    },
+    {
+      "id": "b0d6",
+      "name": "dev",
+      "tasks": [
+        "b43e"
+      ]
+    },
+    {
+      "id": "5cd4",
+      "name": "scrum test1",
+      "tasks": [
+        "8002"
+      ]
+    },
+    {
+      "id": "5cc0",
+      "name": "Scrum z",
+      "tasks": [
+        "b99a"
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "title": "Task One",
+      "description": "Description for Task One",
+      "status": "To Do",
+      "assignedTo": 1
+    },
+    {
+      "id": "2",
+      "title": "Task Two",
+      "description": "Description for Task Two",
+      "status": "In Progress",
+      "assignedTo": 2
+    },
+    {
+      "id": "3",
+      "title": "Task Three",
+      "description": "Description for Task Three",
+      "status": "Done",
+      "assignedTo": 1
+    },
+    {
+      "id": "b43e",
+      "title": "capstone",
+      "description": "project",
+      "status": "To Do",
+      "assignedTo": 46
+    },
+    {
+      "id": "8002",
+      "title": "test1",
+      "description": "test to do....",
+      "status": "Done",
+      "assignedTo": 2
+    },
+    {
+      "id": "b99a",
+      "title": "xyz ",
+      "description": "test ......",
+      "status": "To Do",
+      "assignedTo": 243
+    }
+  ]
+}

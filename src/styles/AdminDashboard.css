@@ -1,0 +1,37 @@
+.scrum-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .scrum-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scrum-name {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .details-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .details-button:hover {
+    background-color: #45a049;
+  }
+  
